@@ -1,0 +1,10 @@
+PODS:
+  - DMPagerViewController (0.1.0)
+
+DEPENDENCIES:
+  - DMPagerViewController
+
+SPEC CHECKSUMS:
+  DMPagerViewController: 5453908781710ae6759884c24ebc0413d44cff12
+
+COCOAPODS: 0.39.0
