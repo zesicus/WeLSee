@@ -1,7 +1,7 @@
 # WeLSee
 基于MobileVLCKit的一款播放器
 
-![pic describe](WeLSee/describe.png)
+![pic describe](https://github.com/zesicus/WeLSee/blob/master/describe.png)
 
 > MobileVLCKit的框架太大没有放进去，可自行编译，见：[Building_the_framework_for_iOS](https://wiki.videolan.org/VLCKit/#Building_the_framework_for_iOS)
 > 
