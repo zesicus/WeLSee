@@ -19,5 +19,7 @@
 @property (strong, nonatomic) LivingViewController *livingVC;
 @property (strong, nonatomic) LocalViewController *localVC;
 
+@property (assign, nonatomic) BOOL allowRotation;
+
 @end
 

@@ -9,12 +9,15 @@
 #import "PlayerViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "AppDelegate.h"
 
 @interface PlayerViewController () {
-    CGFloat screenWidth;
-    CGFloat screenHeight;
+    CGFloat _screenWidth;
+    CGFloat _screenHeight;
     
     CGFloat playerProgress; // 播放进度
+    
+    UIActivityIndicatorView *_indicatior;
     
     // 手势初始X和Y坐标
     CGFloat beginTouchX;
@@ -25,6 +28,9 @@
     
     //是否本地，是本地就把进度条和时间标签隐藏
     BOOL isLocal;
+    
+    //VLC承载视图
+    UIView *_loadView;
 }
 
 @property (nonatomic, strong) UIProgressView *progressBar; //进度条
@@ -38,7 +44,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor blackColor]];
+    _screenWidth = [[UIScreen mainScreen] bounds].size.width;
+    _screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     //导航栏
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
@@ -48,58 +56,56 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationController.navigationBar.hidden = YES;
     
+    //承载视图初始化
+    _loadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _screenWidth, _screenWidth * 2 / 3)];
+    _loadView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:_loadView];
+    
     //播放键
-    _playBtn = [[UIButton alloc] init];
-    [_playBtn setImage:[UIImage imageNamed:@"MVLCMovieViewHUDPause_iPhone"] forState:UIControlStateNormal];
-    [self.view addSubview:_playBtn];
+    UIImage *playBtnImg = [UIImage imageNamed:@"MVLCMovieViewHUDPause_iPhone"];
+    _playBtn = [[UIButton alloc] initWithFrame:CGRectMake(15, _loadView.frame.size.height - playBtnImg.size.height - 15, playBtnImg.size.width, playBtnImg.size.height)];
+    [_playBtn setImage:playBtnImg forState:UIControlStateNormal];
+    [_loadView addSubview:_playBtn];
     [_playBtn setHidden:YES];
     [_playBtn addTarget:self action:@selector(playControl) forControlEvents:UIControlEventTouchUpInside];
-    [_playBtn setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_playBtn attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:25]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_playBtn attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-25]];
     
     //剩余时间label
-    _remainingTimeLabel = [[UILabel alloc] init];
-    [_remainingTimeLabel setText:@"--:--:--"];
+    NSString *defaultText = @"--:--:--";
+    CGSize textSize = [defaultText sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}];
+    _remainingTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(_loadView.frame.size.width - textSize.width - 30, _playBtn.center.y - textSize.height / 2, textSize.width, textSize.height)];
+    _remainingTimeLabel.font = [UIFont systemFontOfSize:14];
+    [_remainingTimeLabel setText:defaultText];
     [_remainingTimeLabel setTextColor:[UIColor whiteColor]];
-    [self.view addSubview:_remainingTimeLabel];
+    [_loadView addSubview:_remainingTimeLabel];
     [_remainingTimeLabel setHidden:YES];
-    [_remainingTimeLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_remainingTimeLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-10]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_remainingTimeLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-27]];
     
     //进度条
-    _progressBar = [[UIProgressView alloc] init];
+    _progressBar = [[UIProgressView alloc] initWithFrame:CGRectMake(30 + _playBtn.frame.size.width, _playBtn.center.y - 2, _screenWidth - 60 - _playBtn.frame.size.width - _remainingTimeLabel.frame.size.width, 4)];
     [_progressBar setProgress:0];
-    [self.view addSubview:_progressBar];
-    [_progressBar setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_loadView addSubview:_progressBar];
     [_progressBar setHidden:YES];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_progressBar attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_playBtn attribute:NSLayoutAttributeRight multiplier:1.0 constant:15]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_progressBar attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_remainingTimeLabel attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-15]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_progressBar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-35]];
     
     //指示器
-    UIActivityIndicatorView *indicatior = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [self.view addSubview:indicatior];
-    [indicatior setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:indicatior attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:indicatior attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
-    [indicatior startAnimating];
+    _indicatior = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    _indicatior.center = _loadView.center;
+    [self.view addSubview:_indicatior];
+    [_indicatior startAnimating];
+    [_indicatior setHidesWhenStopped:YES];
     
     //点击手势
     UITapGestureRecognizer *tapScrn = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showControlPanel)];
     tapScrn.numberOfTapsRequired = 1;
     tapScrn.numberOfTouchesRequired = 1;
-    [self.view addGestureRecognizer:tapScrn];
+    [_loadView addGestureRecognizer:tapScrn];
     
     //视频播放
     if (_playPath) {
-        _player = [[Player alloc] initWithView:self.view andMediaPath:_playPath];
+        _player = [[Player alloc] initWithView:_loadView andMediaPath:_playPath];
         [_player playMedia];
         isLocal = YES;
     }
     if (_playURL) {
-        _player = [[Player alloc] initWithView:self.view andMediaURL:_playURL];
+        _player = [[Player alloc] initWithView:_loadView andMediaURL:_playURL];
         [_player playMedia];
         isLocal = NO;
     }
@@ -107,22 +113,16 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    //获得屏幕尺寸
-    screenWidth = [[UIScreen mainScreen] bounds].size.width;
-    screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    if (screenHeight > screenWidth) { // 让宽度比高度大，即横屏的宽高
-        CGFloat tmp = screenWidth;
-        screenWidth = screenHeight;
-        screenHeight = tmp;
-    }
-    
+    ((AppDelegate *)([[UIApplication sharedApplication] delegate])).allowRotation = YES;
     [_player.player addObserver:self forKeyPath:@"remainingTime" options:0 context:nil];
+    [_player.player addObserver:self forKeyPath:@"isPlaying" options:0 context:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    ((AppDelegate *)([[UIApplication sharedApplication] delegate])).allowRotation = NO;
     [super viewDidDisappear:animated];
     [_player.player removeObserver:self forKeyPath:@"remainingTime"];
+    [_player.player removeObserver:self forKeyPath:@"isPlaying"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -130,17 +130,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - 固定方向
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskLandscapeLeft;
-}
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    return UIInterfaceOrientationLandscapeLeft;
-}
-
-- (BOOL)shouldAutorotate {
-    return NO;
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    if (size.width > size.height) {
+        [UIView animateWithDuration:0.2 animations:^{
+            _loadView.frame = CGRectMake(0, 0, size.width, size.height);
+            _indicatior.center = _loadView.center;
+        }];
+    } else {
+        [UIView animateWithDuration:0.2 animations:^{
+            _loadView.frame = CGRectMake(0, 0, _screenWidth, _screenWidth * 2 / 3);
+            _indicatior.center = _loadView.center;
+        }];
+    }
 }
 
 #pragma mark - VLCMediaPlayerDelegate
@@ -149,6 +150,11 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     _progressBar.progress = [_player.player position];
     _remainingTimeLabel.text = [[_player.player remainingTime] stringValue];
+    if ([keyPath isEqualToString:@"isPlaying"]) {
+        if ([_player.player isPlaying]) {
+            [_indicatior stopAnimating];
+        }
+    }
     
 //    NSLog(@"%d", [[_player.player time] intValue]);
 }
@@ -179,7 +185,7 @@
         // 中屏幕中间左右滑动改变进度
         if ([_player.player isPlaying] && isLocal) { // 如果视频可以播放才可以调整播放进度
             // 要改变的进度值
-            CGFloat deltaProgress = offsetX / screenWidth;
+            CGFloat deltaProgress = offsetX / _screenWidth;
             int progressInSec = (int)(deltaProgress * 300);
             if (progressInSec > 0 && ([[_player.player remainingTime] intValue] + progressInSec * 1000) < 0) {
                 [_player.player jumpForward:progressInSec];
@@ -200,9 +206,9 @@
 //显示/关闭 控制面板
 - (void)showControlPanel {
     
-    [self.view bringSubviewToFront:_playBtn];
-    [self.view bringSubviewToFront:_remainingTimeLabel];
-    [self.view bringSubviewToFront:_progressBar];
+    [_loadView bringSubviewToFront:_playBtn];
+    [_loadView bringSubviewToFront:_remainingTimeLabel];
+    [_loadView bringSubviewToFront:_progressBar];
     
     if (_playBtn.isHidden) {
         _playBtn.hidden = NO;
