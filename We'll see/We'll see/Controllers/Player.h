@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MobileVLCKit/MobileVLCKit.h>
+#import <UIKit/UIKit.h>
 
 @interface Player : NSObject
 
