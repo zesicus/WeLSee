@@ -7,11 +7,18 @@
 //
 
 #import "LivingViewController.h"
-#import "TVCell.h"
 #import "TVSource.h"
+#import "TVCollectionViewCell.h"
 #import "PlayerViewController.h"
 
-@interface LivingViewController ()
+#define kScreenFrame [UIScreen mainScreen].bounds
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenScale [UIScreen mainScreen].scale
+
+@interface LivingViewController () <UICollectionViewDelegate, UICollectionViewDataSource> {
+    UICollectionView *_collectionView;
+}
 
 @end
 
@@ -25,18 +32,21 @@
     [super viewDidLoad];
     
     [self.view setFrame:CGRectMake(0, 0, 375, 400)];
-//    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    //AQGridView
-    self.gridView = [[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 375, 400)]; //初始化用iPhone6的点阵
-    self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.gridView.autoresizesSubviews = YES;
-    self.gridView.dataSource = self;
-    self.gridView.delegate = self;
-    [_gridView setSeparatorStyle:AQGridViewCellSeparatorStyleSingleLine];
-    [_gridView setSeparatorColor:[UIColor grayColor]];
-    [self.view addSubview:_gridView];
-    [_gridView reloadData];
+    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) collectionViewLayout:layout];
+    layout.itemSize = CGSizeMake(kScreenWidth/3, kScreenWidth/3);
+    layout.minimumLineSpacing = 0;
+    layout.minimumInteritemSpacing = 0;
+    layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    _collectionView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_collectionView];
+    
+    [_collectionView registerClass:[TVCollectionViewCell class] forCellWithReuseIdentifier:@"TVCell"];
+    [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableCellHeader"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,36 +54,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - AQGridViewDataSource
-- (NSUInteger)numberOfItemsInGridView:(AQGridView *)gridView {
+#pragma mark - UICollectionView
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [TVSource getTVName].count;
 }
 
-- (AQGridViewCell *)gridView:(AQGridView *)gridView cellForItemAtIndex:(NSUInteger)index {
-    static NSString *identifier = @"PlainCell";
-    TVCell *cell = (TVCell *)[gridView dequeueReusableCellWithIdentifier:identifier];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *identifier = @"TVCell";
+    TVCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     if (!cell) {
-        cell = [[TVCell alloc] initWithFrame:CGRectMake(0, 0, 125, 130) reuseIdentifier:identifier];
+        cell = [[TVCollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth/3, kScreenWidth/3)];
     }
-    //上标题图片
-    [cell.imageView setImage:[UIImage imageNamed:[TVSource getTVName][index]]];
-    [cell.describeLabel setText:[TVSource getTVName][index]];
+    [cell sizeToFit];
+    [cell.imageView setImage:[UIImage imageNamed:[TVSource getTVName][indexPath.row]]];
+    [cell.describeLabel setText:[TVSource getTVName][indexPath.row]];
     return cell;
 }
 
-#pragma mark - AQGridViewDelegate implements
-- (void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index {
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     PlayerViewController *pvc = [[PlayerViewController alloc] init];
-    NSURL *url = [NSURL URLWithString:[TVSource getTVPath][index]];
+    NSURL *url = [NSURL URLWithString:[TVSource getTVPath][indexPath.row]];
     pvc.playURL = url;
-    pvc.playName = [TVSource getTVName][index];
+    pvc.playName = [TVSource getTVName][indexPath.row];
     UINavigationController *nvgVC = [[UINavigationController alloc] initWithRootViewController:pvc];
-    [_gridView deselectItemAtIndex:index animated:YES];
-    [self presentViewController:nvgVC animated:NO completion:nil];
-}
-
-- (CGSize)portraitGridCellSizeForGridView:(AQGridView *)gridView {
-    return CGSizeMake(125, 130);
+    [self presentViewController:nvgVC animated:YES completion:nil];
 }
 
 @end

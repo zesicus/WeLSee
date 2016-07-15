@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <DMPagerViewController.h>
-#import "AQGridView.h"
 
-@interface LivingViewController : UIViewController <DMPagerViewControllerProtocol, AQGridViewDelegate, AQGridViewDataSource>
+@interface LivingViewController : UIViewController <DMPagerViewControllerProtocol>
 
 @property (nonatomic, strong) DMPagerNavigationBarItem *pageObj;
-@property (nonatomic, strong) AQGridView *gridView;
 
 @end

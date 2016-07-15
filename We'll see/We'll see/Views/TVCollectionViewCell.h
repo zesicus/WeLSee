@@ -1,14 +1,14 @@
 //
-//  TVCell.h
+//  TVCollectionViewCell.h
 //  We'll see
 //
-//  Created by Sunny on 1/1/16.
+//  Created by Sunny on 7/15/16.
 //  Copyright © 2016 Nine. All rights reserved.
 //
 
-#import "AQGridViewCell.h"
+#import <UIKit/UIKit.h>
 
-@interface TVCell : AQGridViewCell
+@interface TVCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *describeLabel;

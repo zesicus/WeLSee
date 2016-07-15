@@ -10,25 +10,11 @@
 		599D17A41C33D9DE00106F10 /* LivingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 599D17A31C33D9DE00106F10 /* LivingViewController.m */; };
 		599D17A71C33DAC400106F10 /* LocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 599D17A61C33DAC400106F10 /* LocalViewController.m */; };
 		59A090861C3437C1002AA9AD /* ReadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A090851C3437C1002AA9AD /* ReadFile.m */; };
-		59C386E81C363EA400BF5767 /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C386D21C363EA400BF5767 /* AQGridView.m */; };
-		59C386E91C363EA400BF5767 /* AQGridViewAnimatorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C386D61C363EA400BF5767 /* AQGridViewAnimatorItem.m */; };
-		59C386EA1C363EA400BF5767 /* AQGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C386D81C363EA400BF5767 /* AQGridViewCell.m */; };
-		59C386EB1C363EA400BF5767 /* AQGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C386DB1C363EA400BF5767 /* AQGridViewController.m */; };
-		59C386EC1C363EA400BF5767 /* AQGridViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C386DD1C363EA400BF5767 /* AQGridViewData.m */; };
-		59C386ED1C363EA400BF5767 /* AQGridViewUpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C386DF1C363EA400BF5767 /* AQGridViewUpdateInfo.m */; };
-		59C386EE1C363EA400BF5767 /* AQGridViewUpdateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C386E11C363EA400BF5767 /* AQGridViewUpdateItem.m */; };
-		59C386EF1C363EA400BF5767 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C386E31C363EA400BF5767 /* NSIndexSet+AQIndexesOutsideSet.m */; };
-		59C386F01C363EA400BF5767 /* NSIndexSet+AQIsSetContiguous.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C386E51C363EA400BF5767 /* NSIndexSet+AQIsSetContiguous.m */; };
-		59C386F11C363EA400BF5767 /* UIColor+AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C386E71C363EA400BF5767 /* UIColor+AQGridView.m */; };
-		59C386F81C363ED300BF5767 /* AQGridSelection.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C386F31C363ED300BF5767 /* AQGridSelection.png */; };
-		59C386F91C363ED300BF5767 /* AQGridSelectionGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C386F41C363ED300BF5767 /* AQGridSelectionGray.png */; };
-		59C386FA1C363ED300BF5767 /* AQGridSelectionGrayBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C386F51C363ED300BF5767 /* AQGridSelectionGrayBlue.png */; };
-		59C386FB1C363ED300BF5767 /* AQGridSelectionGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C386F61C363ED300BF5767 /* AQGridSelectionGreen.png */; };
-		59C386FC1C363ED300BF5767 /* AQGridSelectionRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C386F71C363ED300BF5767 /* AQGridSelectionRed.png */; };
-		59C386FF1C363FB800BF5767 /* TVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C386FE1C363FB800BF5767 /* TVCell.m */; };
 		59C387031C36480A00BF5767 /* TVSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C387021C36480A00BF5767 /* TVSource.m */; };
 		59C387061C367CFE00BF5767 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C387051C367CFE00BF5767 /* libz.1.dylib */; };
 		59C387081C367D2100BF5767 /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C387071C367D2100BF5767 /* libbz2.1.0.dylib */; };
+		59C97DC21D38786C004D97CA /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C97DC11D38786C004D97CA /* MobileVLCKit.framework */; };
+		59C97DF21D388C40004D97CA /* TVCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C97DF11D388C40004D97CA /* TVCollectionViewCell.m */; };
 		59D753D51C378E6500188EA0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D753D41C378E6500188EA0 /* MediaPlayer.framework */; };
 		59DCCE971C32D7C1002DA8AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59DCCE961C32D7C1002DA8AA /* main.m */; };
 		59DCCE9A1C32D7C1002DA8AA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59DCCE991C32D7C1002DA8AA /* AppDelegate.m */; };
@@ -38,7 +24,6 @@
 		59DCCEBB1C32D7C1002DA8AA /* We_ll_seeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59DCCEBA1C32D7C1002DA8AA /* We_ll_seeUITests.m */; };
 		59E411101C34B8B700B10F4A /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4110F1C34B8B700B10F4A /* PlayerViewController.m */; };
 		59E411131C34BC2C00B10F4A /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E411121C34BC2C00B10F4A /* Player.m */; };
-		59E411151C34BC8C00B10F4A /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E411141C34BC8C00B10F4A /* MobileVLCKit.framework */; };
 		59E411171C34BCAF00B10F4A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E411161C34BCAF00B10F4A /* AudioToolbox.framework */; };
 		59E411191C34BD8B00B10F4A /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E411181C34BD8B00B10F4A /* VideoToolbox.framework */; };
 		59E4111B1C34BD9700B10F4A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E4111A1C34BD9700B10F4A /* CoreMedia.framework */; };
@@ -77,40 +62,13 @@
 		599D17A61C33DAC400106F10 /* LocalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalViewController.m; path = Views/LocalViewController.m; sourceTree = "<group>"; };
 		59A090841C3437C1002AA9AD /* ReadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadFile.h; path = Controllers/ReadFile.h; sourceTree = "<group>"; };
 		59A090851C3437C1002AA9AD /* ReadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReadFile.m; path = Controllers/ReadFile.m; sourceTree = "<group>"; };
-		59C386D11C363EA400BF5767 /* AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridView.h; sourceTree = "<group>"; };
-		59C386D21C363EA400BF5767 /* AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridView.m; sourceTree = "<group>"; };
-		59C386D31C363EA400BF5767 /* AQGridView+CellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLayout.h"; sourceTree = "<group>"; };
-		59C386D41C363EA400BF5767 /* AQGridView+CellLocationDelegation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLocationDelegation.h"; sourceTree = "<group>"; };
-		59C386D51C363EA400BF5767 /* AQGridViewAnimatorItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewAnimatorItem.h; sourceTree = "<group>"; };
-		59C386D61C363EA400BF5767 /* AQGridViewAnimatorItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewAnimatorItem.m; sourceTree = "<group>"; };
-		59C386D71C363EA400BF5767 /* AQGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewCell.h; sourceTree = "<group>"; };
-		59C386D81C363EA400BF5767 /* AQGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewCell.m; sourceTree = "<group>"; };
-		59C386D91C363EA400BF5767 /* AQGridViewCell+AQGridViewCellPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridViewCell+AQGridViewCellPrivate.h"; sourceTree = "<group>"; };
-		59C386DA1C363EA400BF5767 /* AQGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewController.h; sourceTree = "<group>"; };
-		59C386DB1C363EA400BF5767 /* AQGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewController.m; sourceTree = "<group>"; };
-		59C386DC1C363EA400BF5767 /* AQGridViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewData.h; sourceTree = "<group>"; };
-		59C386DD1C363EA400BF5767 /* AQGridViewData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewData.m; sourceTree = "<group>"; };
-		59C386DE1C363EA400BF5767 /* AQGridViewUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewUpdateInfo.h; sourceTree = "<group>"; };
-		59C386DF1C363EA400BF5767 /* AQGridViewUpdateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewUpdateInfo.m; sourceTree = "<group>"; };
-		59C386E01C363EA400BF5767 /* AQGridViewUpdateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewUpdateItem.h; sourceTree = "<group>"; };
-		59C386E11C363EA400BF5767 /* AQGridViewUpdateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewUpdateItem.m; sourceTree = "<group>"; };
-		59C386E21C363EA400BF5767 /* NSIndexSet+AQIndexesOutsideSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+AQIndexesOutsideSet.h"; sourceTree = "<group>"; };
-		59C386E31C363EA400BF5767 /* NSIndexSet+AQIndexesOutsideSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+AQIndexesOutsideSet.m"; sourceTree = "<group>"; };
-		59C386E41C363EA400BF5767 /* NSIndexSet+AQIsSetContiguous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+AQIsSetContiguous.h"; sourceTree = "<group>"; };
-		59C386E51C363EA400BF5767 /* NSIndexSet+AQIsSetContiguous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+AQIsSetContiguous.m"; sourceTree = "<group>"; };
-		59C386E61C363EA400BF5767 /* UIColor+AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AQGridView.h"; sourceTree = "<group>"; };
-		59C386E71C363EA400BF5767 /* UIColor+AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AQGridView.m"; sourceTree = "<group>"; };
-		59C386F31C363ED300BF5767 /* AQGridSelection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelection.png; sourceTree = "<group>"; };
-		59C386F41C363ED300BF5767 /* AQGridSelectionGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelectionGray.png; sourceTree = "<group>"; };
-		59C386F51C363ED300BF5767 /* AQGridSelectionGrayBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelectionGrayBlue.png; sourceTree = "<group>"; };
-		59C386F61C363ED300BF5767 /* AQGridSelectionGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelectionGreen.png; sourceTree = "<group>"; };
-		59C386F71C363ED300BF5767 /* AQGridSelectionRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelectionRed.png; sourceTree = "<group>"; };
-		59C386FD1C363FB800BF5767 /* TVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TVCell.h; path = Views/TVCell.h; sourceTree = "<group>"; };
-		59C386FE1C363FB800BF5767 /* TVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TVCell.m; path = Views/TVCell.m; sourceTree = "<group>"; };
 		59C387011C36480A00BF5767 /* TVSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVSource.h; sourceTree = "<group>"; };
 		59C387021C36480A00BF5767 /* TVSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVSource.m; sourceTree = "<group>"; };
 		59C387051C367CFE00BF5767 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		59C387071C367D2100BF5767 /* libbz2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.1.0.dylib; path = ../../../../../../usr/lib/libbz2.1.0.dylib; sourceTree = "<group>"; };
+		59C97DC11D38786C004D97CA /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileVLCKit.framework; path = ../../../3rdPart/MobileVLCKit.framework; sourceTree = "<group>"; };
+		59C97DF01D388C40004D97CA /* TVCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TVCollectionViewCell.h; path = Views/TVCollectionViewCell.h; sourceTree = "<group>"; };
+		59C97DF11D388C40004D97CA /* TVCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TVCollectionViewCell.m; path = Views/TVCollectionViewCell.m; sourceTree = "<group>"; };
 		59D753D41C378E6500188EA0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		59DCCE921C32D7C1002DA8AA /* We'll see.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "We'll see.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59DCCE961C32D7C1002DA8AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -129,7 +87,6 @@
 		59E4110F1C34B8B700B10F4A /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = Views/PlayerViewController.m; sourceTree = "<group>"; };
 		59E411111C34BC2C00B10F4A /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Controllers/Player.h; sourceTree = "<group>"; };
 		59E411121C34BC2C00B10F4A /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Controllers/Player.m; sourceTree = "<group>"; };
-		59E411141C34BC8C00B10F4A /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileVLCKit.framework; path = ../../3rdPart/MobileVLCKit.framework; sourceTree = "<group>"; };
 		59E411161C34BCAF00B10F4A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		59E411181C34BD8B00B10F4A /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		59E4111A1C34BD9700B10F4A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -147,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59C97DC21D38786C004D97CA /* MobileVLCKit.framework in Frameworks */,
 				59D753D51C378E6500188EA0 /* MediaPlayer.framework in Frameworks */,
 				59C387081C367D2100BF5767 /* libbz2.1.0.dylib in Frameworks */,
 				59C387061C367CFE00BF5767 /* libz.1.dylib in Frameworks */,
@@ -159,7 +117,6 @@
 				59E4111B1C34BD9700B10F4A /* CoreMedia.framework in Frameworks */,
 				59E411191C34BD8B00B10F4A /* VideoToolbox.framework in Frameworks */,
 				59E411171C34BCAF00B10F4A /* AudioToolbox.framework in Frameworks */,
-				59E411151C34BC8C00B10F4A /* MobileVLCKit.framework in Frameworks */,
 				7DD7F2C1B37800180A3BE765 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,62 +178,10 @@
 		59C386CA1C363BB300BF5767 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				59C386FD1C363FB800BF5767 /* TVCell.h */,
-				59C386FE1C363FB800BF5767 /* TVCell.m */,
+				59C97DF01D388C40004D97CA /* TVCollectionViewCell.h */,
+				59C97DF11D388C40004D97CA /* TVCollectionViewCell.m */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		59C386CB1C363E3D00BF5767 /* 3rd */ = {
-			isa = PBXGroup;
-			children = (
-				59C386CC1C363E5600BF5767 /* AQGridView */,
-				59E411141C34BC8C00B10F4A /* MobileVLCKit.framework */,
-			);
-			name = 3rd;
-			sourceTree = "<group>";
-		};
-		59C386CC1C363E5600BF5767 /* AQGridView */ = {
-			isa = PBXGroup;
-			children = (
-				59C386F21C363EB300BF5767 /* Resources */,
-				59C386D11C363EA400BF5767 /* AQGridView.h */,
-				59C386D21C363EA400BF5767 /* AQGridView.m */,
-				59C386D31C363EA400BF5767 /* AQGridView+CellLayout.h */,
-				59C386D41C363EA400BF5767 /* AQGridView+CellLocationDelegation.h */,
-				59C386D51C363EA400BF5767 /* AQGridViewAnimatorItem.h */,
-				59C386D61C363EA400BF5767 /* AQGridViewAnimatorItem.m */,
-				59C386D71C363EA400BF5767 /* AQGridViewCell.h */,
-				59C386D81C363EA400BF5767 /* AQGridViewCell.m */,
-				59C386D91C363EA400BF5767 /* AQGridViewCell+AQGridViewCellPrivate.h */,
-				59C386DA1C363EA400BF5767 /* AQGridViewController.h */,
-				59C386DB1C363EA400BF5767 /* AQGridViewController.m */,
-				59C386DC1C363EA400BF5767 /* AQGridViewData.h */,
-				59C386DD1C363EA400BF5767 /* AQGridViewData.m */,
-				59C386DE1C363EA400BF5767 /* AQGridViewUpdateInfo.h */,
-				59C386DF1C363EA400BF5767 /* AQGridViewUpdateInfo.m */,
-				59C386E01C363EA400BF5767 /* AQGridViewUpdateItem.h */,
-				59C386E11C363EA400BF5767 /* AQGridViewUpdateItem.m */,
-				59C386E21C363EA400BF5767 /* NSIndexSet+AQIndexesOutsideSet.h */,
-				59C386E31C363EA400BF5767 /* NSIndexSet+AQIndexesOutsideSet.m */,
-				59C386E41C363EA400BF5767 /* NSIndexSet+AQIsSetContiguous.h */,
-				59C386E51C363EA400BF5767 /* NSIndexSet+AQIsSetContiguous.m */,
-				59C386E61C363EA400BF5767 /* UIColor+AQGridView.h */,
-				59C386E71C363EA400BF5767 /* UIColor+AQGridView.m */,
-			);
-			name = AQGridView;
-			sourceTree = "<group>";
-		};
-		59C386F21C363EB300BF5767 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				59C386F31C363ED300BF5767 /* AQGridSelection.png */,
-				59C386F41C363ED300BF5767 /* AQGridSelectionGray.png */,
-				59C386F51C363ED300BF5767 /* AQGridSelectionGrayBlue.png */,
-				59C386F61C363ED300BF5767 /* AQGridSelectionGreen.png */,
-				59C386F71C363ED300BF5767 /* AQGridSelectionRed.png */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		59C387001C3647CC00BF5767 /* Domain */ = {
@@ -352,7 +257,7 @@
 		BACB283E003455D9FAC33FC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				59C386CB1C363E3D00BF5767 /* 3rd */,
+				59C97DC11D38786C004D97CA /* MobileVLCKit.framework */,
 				59C387071C367D2100BF5767 /* libbz2.1.0.dylib */,
 				59C387051C367CFE00BF5767 /* libz.1.dylib */,
 				59E411261C34C07400B10F4A /* libc++.1.dylib */,
@@ -440,6 +345,7 @@
 				TargetAttributes = {
 					59DCCE911C32D7C1002DA8AA = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = XSG6ZK7ZQR;
 					};
 					59DCCEAA1C32D7C1002DA8AA = {
 						CreatedOnToolsVersion = 7.2;
@@ -478,13 +384,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59C386FB1C363ED300BF5767 /* AQGridSelectionGreen.png in Resources */,
 				59DCCEA51C32D7C1002DA8AA /* LaunchScreen.storyboard in Resources */,
-				59C386FC1C363ED300BF5767 /* AQGridSelectionRed.png in Resources */,
 				59DCCEA21C32D7C1002DA8AA /* Assets.xcassets in Resources */,
-				59C386FA1C363ED300BF5767 /* AQGridSelectionGrayBlue.png in Resources */,
-				59C386F81C363ED300BF5767 /* AQGridSelection.png in Resources */,
-				59C386F91C363ED300BF5767 /* AQGridSelectionGray.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,22 +460,12 @@
 			files = (
 				59DCCE9A1C32D7C1002DA8AA /* AppDelegate.m in Sources */,
 				599D17A41C33D9DE00106F10 /* LivingViewController.m in Sources */,
-				59C386E81C363EA400BF5767 /* AQGridView.m in Sources */,
-				59C386F01C363EA400BF5767 /* NSIndexSet+AQIsSetContiguous.m in Sources */,
 				599D17A71C33DAC400106F10 /* LocalViewController.m in Sources */,
-				59C386FF1C363FB800BF5767 /* TVCell.m in Sources */,
-				59C386EB1C363EA400BF5767 /* AQGridViewController.m in Sources */,
+				59C97DF21D388C40004D97CA /* TVCollectionViewCell.m in Sources */,
 				59A090861C3437C1002AA9AD /* ReadFile.m in Sources */,
-				59C386F11C363EA400BF5767 /* UIColor+AQGridView.m in Sources */,
 				59DCCE971C32D7C1002DA8AA /* main.m in Sources */,
 				59E411131C34BC2C00B10F4A /* Player.m in Sources */,
-				59C386EC1C363EA400BF5767 /* AQGridViewData.m in Sources */,
-				59C386EF1C363EA400BF5767 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */,
-				59C386E91C363EA400BF5767 /* AQGridViewAnimatorItem.m in Sources */,
-				59C386EE1C363EA400BF5767 /* AQGridViewUpdateItem.m in Sources */,
-				59C386ED1C363EA400BF5767 /* AQGridViewUpdateInfo.m in Sources */,
 				59C387031C36480A00BF5767 /* TVSource.m in Sources */,
-				59C386EA1C363EA400BF5767 /* AQGridViewCell.m in Sources */,
 				59E411101C34B8B700B10F4A /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,9 +603,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
-				FRAMEWORK_SEARCH_PATHS = /Users/zesicus/Documents/Developer/3rdPart;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/zesicus/Documents/Developer/3rdPart,
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -726,6 +621,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Nine.Sunny.We-ll-see";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -737,9 +633,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
-				FRAMEWORK_SEARCH_PATHS = /Users/zesicus/Documents/Developer/3rdPart;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/zesicus/Documents/Developer/3rdPart,
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -751,6 +651,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Nine.Sunny.We-ll-see";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

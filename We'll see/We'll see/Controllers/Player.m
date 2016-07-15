@@ -13,7 +13,8 @@
 - (id)initWithView:(UIView *)playView andMediaPath:(NSString *)path {
     self = [super init];
     if (self) {
-        _player = [[VLCMediaPlayer alloc] init];
+        NSArray *options = @[@"--extraintf="];
+        _player = [[VLCMediaPlayer alloc] initWithOptions:options];
         _player.drawable = playView;
         VLCMedia *media = [VLCMedia mediaWithPath:path];
         [_player setMedia:media];
@@ -24,7 +25,8 @@
 - (id)initWithView:(UIView *)playView andMediaURL:(NSURL *)url {
     self = [super init];
     if (self) {
-        _player = [[VLCMediaPlayer alloc] init];
+        NSArray *options = @[@"--extraintf="];
+        _player = [[VLCMediaPlayer alloc] initWithOptions:options];
         _player.drawable = playView;
         VLCMedia *media = [VLCMedia mediaWithURL:url];
         [_player setMedia:media];

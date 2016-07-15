@@ -8,8 +8,8 @@
 
 #import "PlayerViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import <MediaPlayer/MediaPlayer.h>
 #import "AppDelegate.h"
+#import <MobileVLCKit/MobileVLCKit.h>
 
 @interface PlayerViewController () {
     CGFloat _screenWidth;
@@ -109,20 +109,25 @@
         [_player playMedia];
         isLocal = NO;
     }
+    
+    //KVO
+    
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     ((AppDelegate *)([[UIApplication sharedApplication] delegate])).allowRotation = YES;
     [_player.player addObserver:self forKeyPath:@"remainingTime" options:0 context:nil];
     [_player.player addObserver:self forKeyPath:@"isPlaying" options:0 context:nil];
+    [_player.player addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     ((AppDelegate *)([[UIApplication sharedApplication] delegate])).allowRotation = NO;
-    [super viewDidDisappear:animated];
     [_player.player removeObserver:self forKeyPath:@"remainingTime"];
     [_player.player removeObserver:self forKeyPath:@"isPlaying"];
+    [_player.player removeObserver:self forKeyPath:@"state"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -144,9 +149,7 @@
     }
 }
 
-#pragma mark - VLCMediaPlayerDelegate
-//播放剩余时间显示
-
+#pragma mark - KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     _progressBar.progress = [_player.player position];
     _remainingTimeLabel.text = [[_player.player remainingTime] stringValue];
@@ -155,8 +158,13 @@
             [_indicatior stopAnimating];
         }
     }
-    
-//    NSLog(@"%d", [[_player.player time] intValue]);
+    if ([keyPath isEqualToString:@"state"]) {
+        NSLog(@"%@", VLCMediaPlayerStateToString(_player.player.state));
+        if ([VLCMediaPlayerStateToString(_player.player.state) isEqualToString:@"VLCMediaPlayerStateError"]) {
+            UIAlertView *errAlert = [[UIAlertView alloc] initWithTitle:@"错误！" message:@"打开失败，频道地址失效或网络错误！" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [errAlert show];
+        }
+    }
 }
 
 #pragma mark - touch
